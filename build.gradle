@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.2.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.okta.spring'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	compile("org.springframework.boot:spring-boot-starter-security")
+	compile("org.springframework.security:spring-security-oauth2-client")
+	compile("org.springframework.security:spring-security-oauth2-resource-server")
+	compile("org.springframework.security:spring-security-oauth2-jose")
+	
+	compileOnly 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+}
